@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="wrapper" style="height:320px; width:240px;  margin-left:400px;  border:5px solid yellow; overflow:hidden;">
+
+    <div id = "content" style="margin:0px; height:320px; width: 240px; column-width:240px; column-gap:15px;">
+<p>Another element of the building that took an odd turn wasthe structural design. In the original concept, 
+the base and first14 floors of the building were designed to be a structural steelframe, with a reinforced concrete building above.
+ Very late inthe design process, as we were bidding the work, we found thatthere was a huge spike in the world commodity prices for
+ steeldue to industrial growth in China absorbing so much of theworld’s supply. We went back to the drawing board andredesigned the
+ building as all concrete, saving several milliondollars in the process and simplifying the construction logistics 
+</p>
+
+<p>We also had to consider that the rock caissons (supports) forthe tower, which are sunk into the bedrock, make a lot of 
+noiseduring construction and we hoped that our Chicago neighborscould put up with 241 of them being pounded into the bedrock.
+About a fourth of the supports had to go down 110 feet into thelimestone, so you can see that this alone was a tremendous proj-ect.
+ We got it done and didn’t make too many enemies in theprocess. Because each of the columns carries 14 million pounds,
+the support system has to be carefully and meticulously thoughtout and implemented
+</p>
+
+<p>
+The doctrine which was comparatively new ran through all four essays; but was most amply stated in the essay first published 
+in 1859 under the title "What Knowledge is of Most Worth?" In this essay Spencer divided the leading kinds of human activity
+ into those which minister to self-preservation, those which secure the necessaries of life, those whose end is the care of offspring,
+ those which make good citizens, and those which prepare adults to enjoy nature, literature, and the fine arts; and he then maintained 
+that in each of these several classes, knowledge of science was worth more than any other knowledge. He argued that everywhere throughout 
+creation faculties are developed through the performance of the appropriate functions; so that it would be contrary to the whole harmony of
+ nature "if one kind of culture were needed for the gaining of information, and another kind were needed as a mental gymnastic." He then
+ maintained that the sciences are superior in all respects to languages as educational material; they train the memory better, and a superior
+ kind of memory; they cultivate the judgment, and they impart an admirable moral and religious discipline. He concluded that "for discipline,
+ as well as for guidance, science is of chiefest value. In all its effects, learning the meaning of things is better than learning the meaning 
+of words." He answered the question "what knowledge is of most worth?" with the one word—science.
+
+This doctrine was extremely repulsive to the established profession of education in England, where Latin, Greek, and mathematics had been the
+ staples of education for many generations, and were believed to afford the only suitable preparation for the learned professions, public life,
+ and cultivated society. In proclaiming this doctrine with ample illustration, ingenious argument, and forcible reiteration, Spencer was a true
+ educational pioneer, although some of his scientific contemporaries were really preaching similar doctrines, each in his own field.
+
+The profession of teaching has long been characterised by certain habitual convictions, which Spencer undertook to shake rudely, and even to deride.
+ The first of these convictions is that all education, physical, intellectual, and moral, must be authoritative, and need take no account of the
+ natural wishes, tendencies, and motives of the ignorant and undeveloped child. The second dominating conviction is that to teach means to tell, 
+or show, children what they ought to see, believe, and utter. Expositions by the teacher and books are therefore the true means of education.
+ The third and supreme conviction is that the method of education which produced the teacher himself and the contemporary or earlier scholars,
+ authors, and publicists, must be the righteous and sufficient method. Its fruits demonstrate its soundness, and make it sacred. Herbert Spencer, 
+in the essays included in the present volume, assaulted all three of these firm convictions. Accordingly, the ideas on education which he put forth
+ more than fifty years ago have penetrated educational practice very slowly—particularly in England; but they are now coming to prevail in most 
+civilised countries, and they will prevail more and more. Through him, the thoughts on education of Comenius, Montaigne, Locke, Milton, Rousseau, 
+Pestalozzi, and other noted writers on this neglected subject are at last winning their way into practice, with the modifications or adaptations 
+which the immense gains of the human race in knowledge and power since the nineteenth century opened have shown to be wise.
+
+For teachers and educational administrators it is interesting to observe the steps by which Spencer's doctrines—and especially his doctrine 
+of the supreme value of science—have advanced towards acceptance in practice. In general, the advance has been brought about through the indirect 
+effects of the enormous industrial, social, and political changes of the last fifty years. The first practical step was the introduction of laboratory
+ teaching of one or more of the sciences into the secondary schools and colleges. Chemistry and physics were the commonest subjects selected. These two 
+subjects had been taught from books even earlier; but memorising science out of books is far less useful as training than memorising grammars and vocabularies.
+ The characteristic discipline of science can be imparted only through the laboratory method. The schoolmasters and college faculties who took this step
+ by no means admitted Spencer's contention that science should be the universal staple at all stages of child development. On the contrary, they believed, 
+as most people do to-day, that the mind of the young child cannot grasp the processes and generalisations of science, and that science is no more universally 
+fitted to develop mental power than the classics
+</p>
+    </div>
+</div>
+
+
+
+<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.js"></script>
+<script src="./jquery.touchSwipe.js"></script>
+<script>
+    var i;
+    var page_idx=0;
+    var page_max = 10;
+    var page_preload = 2;
+
+    var w = document.getElementById('wrapper');
+    var c = document.getElementById('content'); c.remove();
+
+    for ( i=0; i<page_max; i++){
+        var pf=$('<div></div>');
+
+        pf.attr('id','pf'+i);
+        pf.css({
+            width: '240px',
+            height: '320px',
+
+            //'background-color': 'gray',
+            //'border-bottom':"thick double #ff0000",
+        });
+
+        w.appendChild(pf[0]);
+    }
+
+
+    function render(page_idx) {
+        var page_idx_min = page_idx-page_preload;
+        var page_idx_max = page_idx+page_preload;
+
+        if (page_idx_min <0) {
+            page_idx_min = 0;
+        }
+        if (page_idx_max > (page_max-1) ) {
+            page_idx_max = (page_max-1);
+        }
+
+console.log(page_idx_min);
+console.log(page_idx_max);
+
+        for ( i=0; i<page_max; i++){
+            var pf = document.getElementById("pf"+i);
+            $(pf).empty()
+        }
+
+        for ( i=0; i<page_max; i++){
+            var pf = document.getElementById("pf"+i);
+            if (i >= page_idx_min && i <= page_idx_max) {
+                var pc = c.cloneNode(true);
+                $(pc).css({
+                    transform: 'translateX(' + '-' + i*(240 +15) + 'px)',
+                });
+                pf.appendChild(pc);
+            }
+        }
+    }
+    render(page_idx);
+
+    var vOffset =0;
+    $("#wrapper").swipe({
+        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+            $('#footer-menu').hide();
+            $('#header-menu').hide();
+            if (true) {
+                switch (String(direction)) {
+                case "up":
+                    //$('#footer-menu').show();
+                    vOffset = 0;
+                    break;
+                case "down":
+                    //$('#header-menu').hide();
+                    vOffset = 0;
+                    break;
+                }
+            }
+        },
+        swipeStatus:function(event, phase, direction, distance, duration, fingers, fingerData, currentDirection) {
+            var data = fingerData[0];
+            var tx = data.end.x - data.start.x;
+            var ty = data.end.y - data.start.y;
+            if (Math.abs(ty)>Math.abs(tx)){
+                ty = ty - vOffset;
+                vOffset += ty;
+                w.scrollTop -= ty;
+
+                if (page_idx != Math.ceil(w.scrollTop/320)) {
+                    page_idx = Math.ceil(w.scrollTop/320);
+                    render(page_idx);             
+                };
+            }
+        },
+    });
+
+
+</script>
+
+
+</body>
+</html>
